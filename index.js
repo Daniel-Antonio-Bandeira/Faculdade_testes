@@ -20,3 +20,18 @@ app.get("/to-binary/:decimal", (req, res) =>{
     app.listen(port, () => {
         console.log(`Servidor rodando na porta ${port}`)
     })
+
+    //Novo endpoint para converter decimal para hexadecimal
+    app.get("/to-hex/:decimal", (req, res) => {
+        const decimal = parent(req.params.decimal, 10)
+        if(isNaN(decimal)) {
+            return req.status(400).json({ erro: "Invadi decimal number"})
+        }
+        //Converte para hexadecimal e deixa em maiusculas
+        const hex = decimal.toString(16).toUpperCase();
+        res.json({decimal, hex})
+    })
+
+    app.listen(port, () => {
+        console.log(`Server running on http://localhost:${port}`)
+    })
