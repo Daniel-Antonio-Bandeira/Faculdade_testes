@@ -17,7 +17,7 @@ paths:
     get:
       summary: Converter decimal para binário
       description: Converte um número decimal fornecido como parâmetro de caminho para sua representação binária.
-      #PARAMETROS 
+#PARAMETROS 
       parameters:
         - name: decimal
           in: path
@@ -26,6 +26,7 @@ paths:
           schema:
             type: integer
             example: 10
+#RESPOSTAS 
       responses:
         '200':
           description: Resposta bem-sucedida com os valores decimal e binário
